@@ -1,0 +1,4 @@
+% egrep -v '^#' .ncmpcpp/config
+mpd_music_dir = "/media/kai/Data/mp3"
+mpd_host = "127.0.0.1"
+mpd_port = "6601"
