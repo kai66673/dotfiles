@@ -26,6 +26,9 @@ function M.config()
       -- diagnostics.flake8,
       null_ls.builtins.completion.spell,
     },
+    on_init = function(new_client, _)
+      new_client.offset_encoding = 'utf-8'
+    end,
   }
 end
 

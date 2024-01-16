@@ -16,6 +16,10 @@ vim.wo.linebreak = true
 vim.opt.virtualedit = "block"
 vim.opt.undofile = true
 vim.opt.shell = "/bin/zsh"
+vim.opt.laststatus = 3
+vim.opt.showcmd = false
+vim.opt.ruler = false
+vim.opt.cmdheight = 0
 
 -- vim.opt.termguicolors = true
 
