@@ -14,6 +14,7 @@ spec "user.plugs.none-ls"
 spec "user.plugs.whichkey"
 spec "user.plugs.bufferline"
 spec "user.plugs.lualine"
+spec "user.plugs.navic"
 spec "user.plugs.cmake-tools"
 spec "user.plugs.toggleterm"
 
