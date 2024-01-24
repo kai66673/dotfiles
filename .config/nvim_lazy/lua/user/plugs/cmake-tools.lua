@@ -7,15 +7,21 @@ local M = {
 
 function M.config()
   local wk = require "which-key"
+  wk.register({
+    m = {
+      name = "CMake Tools",
+      g = { "<cmd>CMakeGenerate<cr>", "CMake Generate" },
+      b = { "<cmd>CMakeSelectBuildType<cr>", "CMake Select Build Type" },
+      t = { "<cmd>CMakeSelectLaunchTarget<cr>", "CMake Select Launch Target" },
+      c = { "<cmd>CMakeCloseRunner<cr>", "CMake Close Runner" },
+    },
+  }, { prefix = "<Leader>" })
   wk.register {
-    ["<leader>mg"] = { "<cmd>CMakeGenerate<cr>", "CMake Generate" },
-    ["<leader>mb"] = { "<cmd>CMakeSelectBuildType<cr>", "CMake Select Build Type" },
-    ["<leader>mt"] = { "<cmd>CMakeSelectLaunchTarget<cr>", "CMake Select Launch Target" },
-    ["<leader>mc"] = { "<cmd>CMakeCloseRunner<cr>", "CMake Close Runner" },
     ["<C-b>"] = { "<cmd>CMakeBuild<cr>", "CMake Build" },
     ["<C-x>"] = { "<cmd>CMakeBuild!<cr>", "CMake Build" },
     ["<C-r>"] = { "<cmd>CMakeRun<cr>", "CMake Build" },
   }
+
   require("cmake-tools").setup {
     cmake_command = "cmake",                                          -- this is used to specify cmake command path
     ctest_command = "ctest",                                          -- this is used to specify ctest command path
