@@ -17,6 +17,7 @@ spec "user.plugs.lualine"
 spec "user.plugs.navic"
 spec "user.plugs.cmake-tools"
 spec "user.plugs.toggleterm"
+spec "user.plugs.toggle_lsp_diagnostics"
 
 -- Ленивая загрузка плагинов
 require "user.lazy"

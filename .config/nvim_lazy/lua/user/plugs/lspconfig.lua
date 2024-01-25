@@ -73,8 +73,30 @@ function M.config()
     "jsonls",
     "yamlls",
     "clangd",
-    "cmake",
+    -- "cmake",
   }
+
+  local configs = require("lspconfig.configs")
+  if not configs.neocmake then
+    configs.neocmake = {
+      default_config = {
+        cmd = { "neocmakelsp", "--stdio" },
+        filetypes = { "cmake" },
+        root_dir = function(fname)
+          return lspconfig.util.find_git_ancestor(fname)
+        end,
+        single_file_support = true, -- suggested
+        on_attach = on_attach,      -- on_attach is the on_attach function you defined
+        init_options = {
+          format = {
+            enable = true,
+          },
+          scan_cmake_in_package = true, -- default is true
+        },
+      }
+    }
+    lspconfig.neocmake.setup({})
+  end
 
   local default_diagnostic_config = {
     signs = {
