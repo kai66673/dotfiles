@@ -14,6 +14,8 @@ vim.keymap.set('n', '<c-s>', '<CMD>w<CR>')
 vim.keymap.set('i', '<c-s>', '<CMD>w<CR>')
 vim.keymap.set('n', '<c-q>', '<CMD>qa<CR>')
 vim.keymap.set('i', '<c-q>', '<CMD>qa<CR>')
+vim.keymap.set('n', '<c-a>', '<CMD>wa<CR>')
+vim.keymap.set('i', '<c-a>', '<CMD>wa<CR>')
 
 -- LSP-navigation
 vim.keymap.set('n', '<F2>', '<CMD>lua vim.lsp.buf.definition()<CR>')
