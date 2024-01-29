@@ -20,6 +20,8 @@ vim.opt.laststatus = 3
 vim.opt.showcmd = false
 vim.opt.ruler = false
 vim.opt.cmdheight = 0
+vim.opt.cursorline = true
+vim.opt.cursorcolumn = true
 
 -- vim.opt.termguicolors = true
 
