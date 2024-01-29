@@ -20,3 +20,5 @@ vim.keymap.set('i', '<c-a>', '<CMD>wa<CR>')
 -- LSP-navigation
 vim.keymap.set('n', '<F2>', '<CMD>lua vim.lsp.buf.definition()<CR>')
 vim.keymap.set('i', '<F2>', '<CMD>lua vim.lsp.buf.definition()<CR>')
+vim.keymap.set('n', '<F12>', '<CMD>lua vim.lsp.buf.references()<CR>')
+vim.keymap.set('i', '<F12>', '<CMD>lua vim.lsp.buf.references()<CR>')
