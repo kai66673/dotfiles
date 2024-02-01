@@ -18,9 +18,14 @@ function M.config()
   }, { prefix = "<Leader>" })
   wk.register {
     ["<C-b>"] = { "<cmd>CMakeBuild<cr>", "CMake Build" },
-    ["<C-x>"] = { "<cmd>CMakeBuild!<cr>", "CMake Build" },
-    ["<C-r>"] = { "<cmd>CMakeRun<cr>", "CMake Build" },
+    ["<C-x>"] = { "<cmd>CMakeBuild!<cr>", "CMake Rebuild" },
+    ["<C-r>"] = { "<cmd>CMakeRun<cr>", "CMake Run" },
   }
+  wk.register({
+    ["<C-b>"] = { "<cmd>CMakeBuild<cr>", "CMake Build" },
+    ["<C-x>"] = { "<cmd>CMakeBuild!<cr>", "CMake Rebuild" },
+    ["<C-r>"] = { "<cmd>CMakeRun<cr>", "CMake Run" },
+  }, { mode = "i" })
 
   require("cmake-tools").setup {
     cmake_command = "cmake",                                          -- this is used to specify cmake command path

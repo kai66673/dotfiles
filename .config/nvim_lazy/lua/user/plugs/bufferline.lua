@@ -4,6 +4,12 @@ local M = {
 }
 
 function M.config()
+  local wk = require "which-key"
+  wk.register {
+    ["<Tab>"] = { "<CMD>BufferLineCycleNext<CR>", "Next Tab" },
+    ["<s-Tab>"] = { "<CMD>BufferLineCyclePrev<CR>", "Prev Tab" }
+  }
+
   require("bufferline").setup {
     options = {
       buffer_close_icon = '',

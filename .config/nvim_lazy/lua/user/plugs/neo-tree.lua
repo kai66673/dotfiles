@@ -8,6 +8,15 @@ local M = {
 }
 
 function M.config()
+  local wk = require "which-key"
+  wk.register {
+    ["<Leader>e"] = { "<CMD>Neotree float toggle<CR>", "Neotree float toggle" },
+    ["<Leader><s-e>"] = { "<CMD>Neotree left toggle<CR>", "Neotree left toggle" },
+  }
+  wk.register({
+    ["<c-f>"] = { "<ESC><CMD>Neotree float toggle<CR>", "Neotree float toggle" },
+  }, { mode = "i" })
+
   -- I:f you want icons for diagnostic errors, you'll need to define them somewhere:
   vim.fn.sign_define("DiagnosticSignError",
     { text = " ", texthl = "DiagnosticSignError" })

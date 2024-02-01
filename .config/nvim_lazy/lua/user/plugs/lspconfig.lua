@@ -57,6 +57,14 @@ function M.config()
       r = { "<cmd>lua vim.lsp.buf.rename()<cr>", "Rename" },
     },
   }, { prefix = "<leader>" })
+  wk.register {
+    ["<F2>"] = { "<CMD>lua vim.lsp.buf.definition()<CR>", "Go To Definition" },
+    ["<F12>"] = { "<CMD>lua vim.lsp.buf.references()<CR>", "Find References" },
+  }
+  wk.register({
+    ["<F2>"] = { "<CMD>lua vim.lsp.buf.definition()<CR>", "Go To Definition" },
+    ["<F12>"] = { "<CMD>lua vim.lsp.buf.references()<CR>", "Find References" },
+  }, { mode = "i" })
 
   local lspconfig = require("lspconfig")
   local icons = require("user.icons")
