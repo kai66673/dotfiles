@@ -17,13 +17,13 @@ function M.config()
     },
   }, { prefix = "<Leader>" })
   wk.register {
-    ["<C-b>"] = { "<cmd>CMakeBuild<cr>", "CMake Build" },
-    ["<C-x>"] = { "<cmd>CMakeBuild!<cr>", "CMake Rebuild" },
+    ["<C-b>"] = { "<cmd>CMakeBuild -- -j32<cr>", "CMake Build" },
+    ["<C-x>"] = { "<cmd>CMakeBuild!<cr> -- -j32", "CMake Rebuild" },
     ["<C-r>"] = { "<cmd>CMakeRun<cr>", "CMake Run" },
   }
   wk.register({
-    ["<C-b>"] = { "<cmd>CMakeBuild<cr>", "CMake Build" },
-    ["<C-x>"] = { "<cmd>CMakeBuild!<cr>", "CMake Rebuild" },
+    ["<C-b>"] = { "<cmd>CMakeBuild -- -j32<cr>", "CMake Build" },
+    ["<C-x>"] = { "<cmd>CMakeBuild!<cr> -- -j32", "CMake Rebuild" },
     ["<C-r>"] = { "<cmd>CMakeRun<cr>", "CMake Run" },
   }, { mode = "i" })
 

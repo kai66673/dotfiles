@@ -21,6 +21,7 @@ spec "user.plugs.toggleterm"
 spec "user.plugs.toggle_lsp_diagnostics"
 spec "user.plugs.cppassist"
 spec "user.plugs.telescope"
+spec "user.plugs.guard"
 
 -- Ленивая загрузка плагинов
 require "user.lazy"
