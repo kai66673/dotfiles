@@ -6,30 +6,56 @@ local M = {
 }
 
 function M.config()
-  local null_ls = require "null-ls"
+  local null_ls = require("null-ls")
+  local augroup = vim.api.nvim_create_augroup("LspFormatting", {})
 
-  local formatting = null_ls.builtins.formatting
-  local diagnostics = null_ls.builtins.diagnostics
-
-  null_ls.setup {
-    debug = false,
+  null_ls.setup({
     sources = {
-      formatting.stylua,
-      formatting.prettier,
-      formatting.black,
-      -- formatting.prettier.with {
-      --   extra_filetypes = { "toml" },
-      --   -- extra_args = { "--no-semi", "--single-quote", "--jsx-single-quote" },
-      -- },
-      -- formatting.eslint,
-      null_ls.builtins.diagnostics.flake8,
-      -- diagnostics.flake8,
-      null_ls.builtins.completion.spell,
+      null_ls.builtins.formatting.eslint_d.with { filetypes = {
+        "typescript",
+        "javascript",
+        "typescriptreact",
+        "javascriptreact"
+      } },
+      null_ls.builtins.formatting.lua_format,
+      null_ls.builtins.diagnostics.eslint_d,
+      null_ls.builtins.formatting.stylua,
+      null_ls.builtins.diagnostics.ltrs,
+      null_ls.builtins.formatting.rustfmt,
+      null_ls.builtins.formatting.prettierd.with { filetypes = {
+        "css",
+        "scss",
+        "less",
+        "html",
+        "json",
+        "jsonc",
+        "yaml",
+        "markdown",
+        "markdown.mdx",
+        "graphql",
+        "handlebars",
+      },
+      }
     },
-    on_init = function(new_client, _)
-      new_client.offset_encoding = 'utf-8'
+    on_attach = function(client, bufnr)
+      if client.supports_method("textDocument/formatting") then
+        vim.api.nvim_clear_autocmds({ group = augroup, buffer = bufnr })
+        vim.api.nvim_create_autocmd("BufWritePre", {
+          group = augroup,
+          buffer = bufnr,
+          callback = function()
+            vim.lsp.buf.format({
+              bufnr = bufnr,
+              filter = function(client)
+                return client.name == "null-ls"
+              end
+            })
+            -- vim.lsp.buf.formatting_sync()
+          end,
+        })
+      end
     end,
-  }
+  })
 end
 
 return M
