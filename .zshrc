@@ -15,3 +15,5 @@ fi
 
 alias ll='ls -Flarh'
 
+export EDITOR="nvim"
+
